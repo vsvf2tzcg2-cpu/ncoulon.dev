@@ -5,110 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathaniel Coulon - Administrateur Cloud & DevOps Junior</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
-            color: #222;
-            max-width: 800px;
-            margin: 0 auto;
+            background-color: #eef2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
             padding: 40px 20px;
-            background-color: #f4f4f5;
         }
-        .container {
+        .cv-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            width: 100%;
+            max-width: 900px;
             background: #fff;
-            padding: 40px;
-            border-radius: 6px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        /* Colonne Bleue (Latérale) */
+        .sidebar {
+            background-color: #1e3a5f;
+            color: #fff;
+            padding: 30px 20px;
+        }
+        .sidebar h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #93c5fd;
+        }
+        .sidebar h2:first-child {
+            margin-top: 0;
+        }
+        .sidebar p, .sidebar ul, .sidebar li {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+        .sidebar a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        /* Colonne Blanche (Principale) */
+        .main-content {
+            padding: 40px 30px;
         }
         header {
-            border-bottom: 2px solid #333;
-            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            color: #1e3a5f;
+            letter-spacing: 0.5px;
+        }
+        h2.job-title {
+            font-size: 1.05rem;
+            color: #475569;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        section {
             margin-bottom: 25px;
         }
-        h1 { margin: 0; font-size: 2rem; color: #111; letter-spacing: 1px; }
-        h2 { font-size: 1.1rem; color: #444; margin: 5px 0 15px 0; font-weight: 600; }
-        .contact-info { font-size: 0.9rem; color: #555; }
-        .contact-info a { color: #0066cc; text-decoration: none; }
-        section { margin-bottom: 25px; }
-        h3 { border-bottom: 1px solid #ccc; padding-bottom: 4px; color: #111; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; margin-bottom: 12px; }
-        ul { padding-left: 18px; margin-top: 5px; }
-        li { margin-bottom: 6px; font-size: 0.92rem; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
-        .item-title { font-weight: bold; color: #111; }
-        .item-date { color: #555; font-size: 0.88rem; }
-        .item-company { font-style: italic; color: #444; margin-bottom: 4px; font-size: 0.92rem; }
+        h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #1e3a5f;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin-bottom: 15px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .item-title {
+            font-weight: bold;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+        .item-date {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        .item-company {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .main-content ul {
+            padding-left: 16px;
+            margin-top: 5px;
+        }
+        .main-content li {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #334155;
+            line-height: 1.4;
+        }
+        /* Responsive mobile */
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>NATHANIEL COULON</h1>
-        <h2>Administrateur Cloud & DevOps Junior</h2>
-        <div class="contact-info">
-            Beauvois-en-Cambrésis, France<br>
-            Email : <a href="mailto:nathaniel.coulon.pro@icloud.com">nathaniel.coulon.pro@icloud.com</a> | 
-            Téléphone : +33 6 01 29 27 00<br>
-            LinkedIn : <a href="https://www.linkedin.com/in/nathaniel-coulon" target="_blank">nathaniel-coulon</a>
-        </div>
-    </header>
+<div class="cv-container">
+    <!-- COLONNE BLEUE -->
+    <div class="sidebar">
+        <h2>Coordonnées</h2>
+        <p>
+            Beauvois-en-Cambrésis, France<br><br>
+            <strong>Email :</strong><br>
+            <a href="mailto:nathaniel.coulon.pro@icloud.com">nathaniel.coulon.pro@icloud.com</a><br><br>
+            <strong>Téléphone :</strong><br>
+            +33 6 01 29 27 00<br><br>
+            <strong>LinkedIn :</strong><br>
+            <a href="https://www.linkedin.com/in/nathaniel-coulon" target="_blank">nathaniel-coulon</a>
+        </p>
 
-    <section>
-        <h3>Compétences</h3>
+        <h2>Soft Skills</h2>
         <ul>
-            <li><strong>Cloud & DevOps :</strong> Administration Cloud (AWS / Azure / GCP), conteneurisation (Docker, Kubernetes), Infrastructure as Code (Terraform, Ansible), automatisation CI/CD (GitLab CI / GitHub Actions) et scripting (Python, Bash).</li>
-            <li><strong>Systèmes & Réseaux :</strong> Administration systèmes Linux (Ubuntu, Debian) et Windows Server, gestion réseaux (TCP/IP, DNS, DHCP, routage) et sécurité des systèmes.</li>
-            <li><strong>Support & Maintenance :</strong> Diagnostic et dépannage matériel, maintenance de parcs informatiques, expertise sur automates bancaires.</li>
+            <li>• Autonome</li>
+            <li>• Esprit d'analyse</li>
+            <li>• Curiosité technique</li>
+            <li>• Sens du service</li>
         </ul>
-    </section>
 
-    <section>
-        <h3>Expérience</h3>
-        <div>
-            <div class="item-header">
-                <span class="item-title">Technicien Informatique, Securinfor</span>
-                <span class="item-date">Janv. 2022 - Août 2024</span>
-            </div>
-            <ul>
-                <li>Migration et déploiement : exécution de projets de migration de parcs informatiques et d'automates bancaires.</li>
-                <li>Support technique : Résolution d'incidents complexes de niveau 1 et 2, diagnostic matériel et logiciel sur site et à distance.</li>
-                <li>Gestion de projet : Coordination des interventions techniques dans le respect des contraintes de sécurité et des SLA clients.</li>
-                <li>Documentation : Rédaction de procédures techniques et de rapports d'intervention pour le suivi des parcs informatiques.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h3>Formation</h3>
-        <div style="margin-bottom: 15px;">
-            <div class="item-header">
-                <span class="item-title">Formation Administrateur Cloud & DevOps, M2i, Lille</span>
-                <span class="item-date">Juil. 2026 - Actuel</span>
-            </div>
-            <ul>
-                <li>Formation intensive axée sur le Cloud Computing, l'Infrastructure as Code, la conteneurisation et l'automatisation.</li>
-            </ul>
-        </div>
-        <div>
-            <div class="item-header">
-                <span class="item-title">Formation de Technicien Informatique, OpenClassrooms</span>
-                <span class="item-date">2021</span>
-            </div>
-            <div class="item-company">Titre RNCP Bac+2</div>
-            <ul>
-                <li>Apprentissage des fondamentaux de la maintenance, des réseaux, des systèmes d'exploitation et de la sécurité.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h3>Soft Skills, Loisirs & Langues</h3>
+        <h2>Loisirs</h2>
         <ul>
-            <li><strong>Soft Skills :</strong> Autonome, Esprit d'analyse, Curiosité technique, Sens du service.</li>
-            <li><strong>Loisirs :</strong> Cybersécurité (TryHackMe, CTF), Création d'un bot personnel pour Discord (Voir le projet GitHub).</li>
-            <li><strong>Langues :</strong> Anglais : A2.</li>
+            <li>• Cybersécurité (TryHackMe, CTF)</li>
+            <li>• Création d'un bot personnel pour Discord</li>
         </ul>
-    </section>
+
+        <h2>Langues</h2>
+        <p><strong>Anglais :</strong> A2</p>
+    </div>
+
+    <!-- COLONNE BLANCHE -->
+    <div class="main-content">
+        <header>
+            <h1>NATHANIEL COULON</h1>
+            <h2 class="job-title">Administrateur Cloud & DevOps Junior</h2>
+        </header>
+
+        <section>
+            <h3>Compétences</h3>
+            <ul>
+                <li><strong>Cloud & DevOps :</strong> Administration Cloud (AWS / Azure / GCP), conteneurisation (Docker, Kubernetes), Infrastructure as Code (Terraform, Ansible), automatisation CI/CD (GitLab CI / GitHub Actions) et scripting (Python, Bash).</li>
+                <li><strong>Systèmes & Réseaux :</strong> Administration systèmes Linux (Ubuntu, Debian) et Windows Server, gestion réseaux (TCP/IP, DNS, DHCP, routage) et sécurité des systèmes.</li>
+                <li><strong>Support & Maintenance :</strong> Diagnostic et dépannage matériel, maintenance de parcs informatiques, expertise sur automates bancaires.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Expérience</h3>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Technicien Informatique, Securinfor</span>
+                    <span class="item-date">Janv. 2022 - Août 2024</span>
+                </div>
+                <ul>
+                    <li>Migration et déploiement : exécution de projets de migration de parcs informatiques et d'automates bancaires.</li>
+                    <li>Support technique : Résolution d'incidents complexes de niveau 1 et 2, diagnostic matériel et logiciel sur site et à distance.</li>
+                    <li>Gestion de projet : Coordination des interventions techniques dans le respect des contraintes de sécurité et des SLA clients.</li>
+                    <li>Documentation : Rédaction de procédures techniques et de rapports d'intervention pour le suivi des parcs informatiques.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>Formation</h3>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Formation Administrateur Cloud & DevOps, M2i, Lille</span>
+                    <span class="item-date">Juil. 2026 - Actuel</span>
+                </div>
+                <ul>
+                    <li>Formation intensive axée sur le Cloud Computing, l'Infrastructure as Code, la conteneurisation et l'automatisation.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Formation de Technicien Informatique, OpenClassrooms</span>
+                    <span class="item-date">2021</span>
+                </div>
+                <div class="item-company">Titre RNCP Bac+2</div>
+                <ul>
+                    <li>Apprentissage des fondamentaux de la maintenance, des réseaux, des systèmes d'exploitation et de la sécurité.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
 </div>
 
 </body>
