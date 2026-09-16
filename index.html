@@ -15,9 +15,30 @@
             background-color: #eef2f5;
             color: #333;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             padding: 40px 20px;
         }
+
+        /* Style du bouton statique hors du CV */
+        .download-btn {
+            margin-bottom: 25px;
+            background-color: #1e3a5f;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .download-btn:hover {
+            background-color: #2b5284;
+            transform: translateY(-1px);
+        }
+
         .cv-container {
             display: grid;
             grid-template-columns: 280px 1fr;
@@ -30,7 +51,7 @@
         }
         /* Colonne Bleue (Latérale) */
         .sidebar {
-            background-color: #1e3a5f;
+            background-color: #1e3a5f !important;
             color: #fff;
             padding: 30px 20px;
         }
@@ -129,7 +150,35 @@
             color: #334155;
             line-height: 1.4;
         }
-        /* Responsive mobile */
+
+        /* Règle d'impression spécifique pour bloquer les colonnes côte à côte */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 10mm; /* Réduit les marges de la page physique */
+            }
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .download-btn {
+                display: none;
+            }
+            .cv-container {
+                display: grid;
+                grid-template-columns: 280px 1fr !important; /* Force le maintien de la grille */
+                width: 100% !important;
+                max-width: 100% !important;
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+
+        /* Responsive mobile écran */
         @media (max-width: 768px) {
             .cv-container {
                 grid-template-columns: 1fr;
@@ -139,95 +188,97 @@
 </head>
 <body>
 
-<div class="cv-container">
-    <!-- COLONNE BLEUE -->
-    <div class="sidebar">
-        <h2>Coordonnées</h2>
-        <p>
-            Beauvois-en-Cambrésis, France<br><br>
-            <strong>Email :</strong><br>
-            <a href="mailto:nathaniel.coulon.pro@icloud.com">nathaniel.coulon.pro@icloud.com</a><br><br>
-            <strong>Téléphone :</strong><br>
-            +33 6 01 29 12 70<br><br>
-            <strong>LinkedIn :</strong><br>
-            <a href="https://www.linkedin.com/in/nathaniel-coulon-11960b203/" target="_blank">nathaniel-coulon</a>
-        </p>
+    <button class="download-btn" onclick="window.print()">Télécharger / Enregistrer en PDF</button>
 
-        <h2>Soft Skills</h2>
-        <ul>
-            <li>• Autonome</li>
-            <li>• Esprit d'analyse</li>
-            <li>• Curiosité technique</li>
-            <li>• Sens du service</li>
-        </ul>
+    <div class="cv-container">
+        <!-- COLONNE BLEUE -->
+        <div class="sidebar">
+            <h2>Coordonnées</h2>
+            <p>
+                Beauvois-en-Cambrésis, France<br><br>
+                <strong>Email :</strong><br>
+                <a href="mailto:nathaniel.coulon.pro@icloud.com">nathaniel.coulon.pro@icloud.com</a><br><br>
+                <strong>Téléphone :</strong><br>
+                +33 6 01 29 12 70<br><br>
+                <strong>LinkedIn :</strong><br>
+                <a href="https://www.linkedin.com/in/nathaniel-coulon-11960b203/" target="_blank">nathaniel-coulon</a>
+            </p>
 
-        <h2>Loisirs</h2>
-        <ul>
-            <li>• Cybersécurité (TryHackMe, CTF)</li>
-            <li>• Création d'un bot personnel pour Discord</li>
-            <li>• Télépilote de drone A1/A3</li>
-        </ul>
-
-        <h2>Langues</h2>
-        <p><strong>Anglais :</strong> A2</p>
-    </div>
-
-    <!-- COLONNE BLANCHE -->
-    <div class="main-content">
-        <header>
-            <h1>NATHANIEL COULON</h1>
-            <h2 class="job-title">Administrateur Cloud & DevOps Junior</h2>
-        </header>
-
-        <section>
-            <h3>Compétences</h3>
+            <h2>Soft Skills</h2>
             <ul>
-                <li><strong>Cloud & DevOps :</strong> Administration Cloud (AWS / Azure), conteneurisation (Docker, Kubernetes), Infrastructure as Code (Terraform, Ansible), automatisation CI/CD (GitLab CI / GitHub Actions) et scripting (Python, Bash).</li>
-                <li><strong>Systèmes & Réseaux :</strong> Administration systèmes Linux (Ubuntu, Debian) et Windows Server, gestion réseaux (TCP/IP, DNS, DHCP, routage) et sécurité des systèmes.</li>
-                <li><strong>Support & Maintenance :</strong> Diagnostic et dépannage matériel, maintenance de parcs informatiques, expertise sur automates bancaires.</li>
+                <li>• Autonome</li>
+                <li>• Esprit d'analyse</li>
+                <li>• Curiosité technique</li>
+                <li>• Sens du service</li>
             </ul>
-        </section>
 
-        <section>
-            <h3>Expérience</h3>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Technicien Informatique, Securinfor</span>
-                    <span class="item-date">Janv. 2022 - Août 2024</span>
-                </div>
-                <ul>
-                    <li>Migration et déploiement : exécution de projets de migration de parcs informatiques et d'automates bancaires.</li>
-                    <li>Support technique : Résolution d'incidents complexes de niveau 1 et 2, diagnostic matériel et logiciel sur site et à distance.</li>
-                    <li>Gestion de projet : Coordination des interventions techniques dans le respect des contraintes de sécurité et des SLA clients.</li>
-                    <li>Documentation : Rédaction de procédures techniques et de rapports d'intervention pour le suivi des parcs informatiques.</li>
-                </ul>
-            </div>
-        </section>
+            <h2>Loisirs</h2>
+            <ul>
+                <li>• Cybersécurité (TryHackMe, CTF)</li>
+                <li>• Création d'un bot personnel pour Discord</li>
+                <li>• Télépilote de drone A1/A3</li>
+            </ul>
 
-        <section>
-            <h3>Formations</h3>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Formation Administrateur Cloud & DevOps, M2i, Lille</span>
-                    <span class="item-date">Juil. 2026 - Actuel</span>
-                </div>
+            <h2>Langues</h2>
+            <p><strong>Anglais :</strong> A2</p>
+        </div>
+
+        <!-- COLONNE BLANCHE -->
+        <div class="main-content">
+            <header>
+                <h1>NATHANIEL COULON</h1>
+                <h2 class="job-title">Administrateur Cloud & DevOps Junior</h2>
+            </header>
+
+            <section>
+                <h3>Compétences</h3>
                 <ul>
-                    <li>Formation intensive axée sur le Cloud Computing, l'Infrastructure as Code, la conteneurisation et l'automatisation.</li>
+                    <li><strong>Cloud & DevOps :</strong> Administration Cloud (AWS / Azure), conteneurisation (Docker, Kubernetes), Infrastructure as Code (Terraform, Ansible), automatisation CI/CD (GitLab CI / GitHub Actions) et scripting (Python, Bash).</li>
+                    <li><strong>Systèmes & Réseaux :</strong> Administration systèmes Linux (Ubuntu, Debian) et Windows Server, gestion réseaux (TCP/IP, DNS, DHCP, routage) et sécurité des systèmes.</li>
+                    <li><strong>Support & Maintenance :</strong> Diagnostic et dépannage matériel, maintenance de parcs informatiques, expertise sur automates bancaires.</li>
                 </ul>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Formation de Technicien Informatique, OpenClassrooms</span>
-                    <span class="item-date">2021</span>
+            </section>
+
+            <section>
+                <h3>Expérience</h3>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Technicien Informatique, Securinfor</span>
+                        <span class="item-date">Janv. 2022 - Août 2024</span>
+                    </div>
+                    <ul>
+                        <li>Migration et déploiement : exécution de projets de migration de parcs informatiques et d'automates bancaires.</li>
+                        <li>Support technique : Résolution d'incidents complexes de niveau 1 et 2, diagnostic matériel et logiciel sur site et à distance.</li>
+                        <li>Gestion de projet : Coordination des interventions techniques dans le respect des contraintes de sécurité et des SLA clients.</li>
+                        <li>Documentation : Rédaction de procédures techniques et de rapports d'intervention pour le suivi des parcs informatiques.</li>
+                    </ul>
                 </div>
-                <div class="item-company">Titre RNCP Bac+2</div>
-                <ul>
-                    <li>Apprentissage des fondamentaux de la maintenance, des réseaux, des systèmes d'exploitation et de la sécurité.</li>
-                </ul>
-            </div>
-        </section>
+            </section>
+
+            <section>
+                <h3>Formations</h3>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Formation Administrateur Cloud & DevOps, M2i, Lille</span>
+                        <span class="item-date">Juil. 2026 - Actuel</span>
+                    </div>
+                    <ul>
+                        <li>Formation intensive axée sur le Cloud Computing, l'Infrastructure as Code, la conteneurisation et l'automatisation.</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Formation de Technicien Informatique, OpenClassrooms</span>
+                        <span class="item-date">2021</span>
+                    </div>
+                    <div class="item-company">Titre RNCP Bac+2</div>
+                    <ul>
+                        <li>Apprentissage des fondamentaux de la maintenance, des réseaux, des systèmes d'exploitation et de la sécurité.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
 
 </body>
 </html>
