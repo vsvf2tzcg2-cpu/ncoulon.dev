@@ -170,7 +170,7 @@
     padding: 0;
     background: #fff;
     overflow: hidden;
-    display: block;          /* supprime le centrage flex qui décalait le CV */
+    display: block;
   }
 
   .download-btn { display: none; }
@@ -178,32 +178,37 @@
   .cv-container {
     width: 210mm !important;
     max-width: 210mm !important;
-    height: 296mm;           /* occupe toute la page */
-    grid-template-columns: 75mm 1fr !important;
+    height: 296mm;
+    grid-template-columns: 70mm 1fr !important;
     border-radius: 0;
     box-shadow: none;
   }
 
-  /* Colonne bleue : plus aérée */
-  .sidebar { padding: 14mm 8mm; }
-  .sidebar h2 { font-size: 0.95rem; margin-top: 38px; margin-bottom: 18px; }
+  /* Colonne bleue */
+  .sidebar { padding: 12mm 7mm; }
+  .sidebar h2 { font-size: 0.85rem; margin-top: 28px; margin-bottom: 14px; }
   .sidebar h2:first-child { margin-top: 0; }
-  .sidebar p, .sidebar ul, .sidebar li { font-size: 1rem; line-height: 1.6; }
-  .sidebar li { margin-bottom: 12px; }
+  .sidebar p, .sidebar ul, .sidebar li { font-size: 0.9rem; line-height: 1.5; }
+  .sidebar li { margin-bottom: 9px; }
 
-  /* Colonne blanche : sections réparties sur toute la hauteur */
+  /* Colonne blanche : marge basse de 12 mm */
   .main-content {
-    padding: 16mm 12mm;
+    padding: 12mm 11mm 12mm 11mm;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  h1 { font-size: 2.2rem; }
-  h2.job-title { font-size: 1.2rem; }
-  h3 { font-size: 0.95rem; margin-bottom: 22px; }
-  .item-title { font-size: 1.05rem; }
-  .item-date, .item-company { font-size: 0.95rem; }
-  .main-content li { font-size: 1rem; line-height: 1.5; margin-bottom: 8px; }
+  header { margin-bottom: 0; }
+  section { margin-bottom: 0; }
+  h1 { font-size: 2rem; }
+  h2.job-title { font-size: 1.05rem; }
+  h3 { font-size: 0.85rem; margin-bottom: 14px; }
+  .item { margin-bottom: 14px; }
+  .item-header { gap: 10px; }
+  .item-title { font-size: 0.95rem; }
+  .item-date { font-size: 0.85rem; white-space: nowrap; } /* la date ne passe plus à la ligne */
+  .item-company { font-size: 0.88rem; }
+  .main-content li { font-size: 0.9rem; line-height: 1.4; margin-bottom: 5px; }
 }
 
         /* Responsive mobile écran */
