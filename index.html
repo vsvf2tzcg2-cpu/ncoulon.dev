@@ -152,7 +152,7 @@
         }
 
         /* Règle d'impression spécifique pour bloquer les colonnes côte à côte */
-       @media print {
+      @media print {
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -165,30 +165,49 @@
 
   html, body {
     width: 210mm;
-    height: 296mm;          /* 1 mm de moins que 297 pour éviter une 2e page vide */
+    height: 296mm;
     margin: 0;
     padding: 0;
     background: #fff;
     overflow: hidden;
+    display: block;          /* supprime le centrage flex qui décalait le CV */
   }
 
-  .download-btn {
-    display: none;
-  }
+  .download-btn { display: none; }
 
   .cv-container {
-    display: grid;
-    grid-template-columns: 280px 1fr !important;
     width: 210mm !important;
     max-width: 210mm !important;
-    height: 296mm;          /* la colonne bleue descend jusqu'en bas */
-    box-shadow: none;
+    height: 296mm;           /* occupe toute la page */
+    grid-template-columns: 75mm 1fr !important;
     border-radius: 0;
+    box-shadow: none;
   }
+
+  /* Colonne bleue : plus aérée */
+  .sidebar { padding: 14mm 8mm; }
+  .sidebar h2 { font-size: 0.95rem; margin-top: 38px; margin-bottom: 18px; }
+  .sidebar h2:first-child { margin-top: 0; }
+  .sidebar p, .sidebar ul, .sidebar li { font-size: 1rem; line-height: 1.6; }
+  .sidebar li { margin-bottom: 12px; }
+
+  /* Colonne blanche : sections réparties sur toute la hauteur */
+  .main-content {
+    padding: 16mm 12mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  h1 { font-size: 2.2rem; }
+  h2.job-title { font-size: 1.2rem; }
+  h3 { font-size: 0.95rem; margin-bottom: 22px; }
+  .item-title { font-size: 1.05rem; }
+  .item-date, .item-company { font-size: 0.95rem; }
+  .main-content li { font-size: 1rem; line-height: 1.5; margin-bottom: 8px; }
 }
 
         /* Responsive mobile écran */
-        @media (max-width: 768px) {
+       @media screen and (max-width: 768px) {
                         html, body {                width: 210mm;                height: 297mm;                overflow: hidden; /* évite une 2e page vide */            }            .cv-container {                display: grid;                grid-template-columns: 70mm 1fr !important;                width: 210mm !important;                max-width: 210mm !important;                height: 297mm; /* remplit exactement la feuille A4 */                box-shadow: none;                border-radius: 0;            }            .sidebar a {                overflow-wrap: anywhere; /* l'email peut passer à la ligne au lieu de déborder */            }
         }
     </style>
