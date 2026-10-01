@@ -180,9 +180,7 @@
 
         /* Responsive mobile écran */
         @media (max-width: 768px) {
-            .cv-container {
-                grid-template-columns: 1fr;
-            }
+                        html, body {                width: 210mm;                height: 297mm;                overflow: hidden; /* évite une 2e page vide */            }            .cv-container {                display: grid;                grid-template-columns: 70mm 1fr !important;                width: 210mm !important;                max-width: 210mm !important;                height: 297mm; /* remplit exactement la feuille A4 */                box-shadow: none;                border-radius: 0;            }            .sidebar a {                overflow-wrap: anywhere; /* l'email peut passer à la ligne au lieu de déborder */            }
         }
     </style>
 </head>
