@@ -115,7 +115,7 @@
             color: #1e3a5f;
             border-bottom: 1px solid #cbd5e1;
             padding-bottom: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .item {
             margin-bottom: 20px;
@@ -152,31 +152,40 @@
         }
 
         /* Règle d'impression spécifique pour bloquer les colonnes côte à côte */
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            @page {
-                size: A4 portrait;
-                margin: 0mm; /* Réduit les marges de la page physique */
-            }
-            body {
-                background-color: #fff;
-                padding: 0;
-            }
-            .download-btn {
-                display: none;
-            }
-            .cv-container {
-                display: grid;
-                grid-template-columns: 280px 1fr !important; /* Force le maintien de la grille */
-                width: 100% !important;
-                max-width: 100% !important;
-                box-shadow: none;
-                border-radius: 0;
-            }
-        }
+       @media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html, body {
+    width: 210mm;
+    height: 296mm;          /* 1 mm de moins que 297 pour éviter une 2e page vide */
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .download-btn {
+    display: none;
+  }
+
+  .cv-container {
+    display: grid;
+    grid-template-columns: 280px 1fr !important;
+    width: 210mm !important;
+    max-width: 210mm !important;
+    height: 296mm;          /* la colonne bleue descend jusqu'en bas */
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
 
         /* Responsive mobile écran */
         @media (max-width: 768px) {
