@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathaniel Coulon - Administrateur Cloud & DevOps Junior</title>
+    <title>Nathaniel Coulon - Administrateur Cloud & DevOps</title>
+    <meta name="description" content="CV de Nathaniel Coulon, Administrateur Cloud & DevOps : AWS, Azure, Docker, Kubernetes, Terraform, Ansible, CI/CD, Linux.">
+    <link rel="canonical" href="https://ncoulon.dev/">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://ncoulon.dev/">
+    <meta property="og:title" content="Nathaniel Coulon - Administrateur Cloud & DevOps">
+    <meta property="og:description" content="CV de Nathaniel Coulon, Administrateur Cloud & DevOps : AWS, Azure, Docker, Kubernetes, Terraform, Ansible, CI/CD, Linux.">
     <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-hover: #2b5284;
+            --accent: #93c5fd;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,7 +34,7 @@
         /* Style du bouton statique hors du CV */
         .download-btn {
             margin-bottom: 25px;
-            background-color: #1e3a5f;
+            background-color: var(--primary);
             color: #fff;
             border: none;
             padding: 12px 24px;
@@ -35,7 +46,7 @@
             transition: background-color 0.2s, transform 0.1s;
         }
         .download-btn:hover {
-            background-color: #2b5284;
+            background-color: var(--primary-hover);
             transform: translateY(-1px);
         }
 
@@ -51,7 +62,7 @@
         }
         /* Colonne Bleue (Latérale) */
         .sidebar {
-            background-color: #1e3a5f !important;
+            background-color: var(--primary);
             color: #fff;
             padding: 30px 20px;
         }
@@ -63,7 +74,7 @@
             padding-bottom: 6px;
             margin-bottom: 15px;
             margin-top: 25px;
-            color: #93c5fd;
+            color: var(--accent);
         }
         .sidebar h2:first-child {
             margin-top: 0;
@@ -81,7 +92,7 @@
             margin-bottom: 8px;
         }
         .sidebar a {
-            color: #93c5fd;
+            color: var(--accent);
             text-decoration: none;
         }
         .sidebar a:hover {
@@ -96,7 +107,7 @@
         }
         h1 {
             font-size: 1.8rem;
-            color: #1e3a5f;
+            color: var(--primary);
             letter-spacing: 0.5px;
         }
         h2.job-title {
@@ -112,7 +123,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #1e3a5f;
+            color: var(--primary);
             border-bottom: 1px solid #cbd5e1;
             padding-bottom: 4px;
             margin-bottom: 15px;
@@ -152,78 +163,88 @@
         }
 
         /* Règle d'impression spécifique pour bloquer les colonnes côte à côte */
-      @media print {
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
 
-  @page {
-    size: A4 portrait;
-    margin: 0;
-  }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
 
-  html, body {
-    width: 210mm;
-    height: 296mm;
-    margin: 0;
-    padding: 0;
-    background: #fff;
-    overflow: hidden;
-    display: block;
-  }
+            html, body {
+                width: 210mm;
+                height: 296mm;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                overflow: hidden;
+                display: block;
+            }
 
-  .download-btn { display: none; }
+            .download-btn { display: none; }
 
-  .cv-container {
-    width: 210mm !important;
-    max-width: 210mm !important;
-    height: 296mm;
-    grid-template-columns: 70mm 1fr !important;
-    border-radius: 0;
-    box-shadow: none;
-  }
+            .cv-container {
+                width: 210mm;
+                max-width: 210mm;
+                height: 296mm;
+                grid-template-columns: 70mm 1fr;
+                border-radius: 0;
+                box-shadow: none;
+            }
 
-  /* Colonne bleue */
-  .sidebar { padding: 12mm 7mm; }
-  .sidebar h2 { font-size: 0.85rem; margin-top: 28px; margin-bottom: 14px; }
-  .sidebar h2:first-child { margin-top: 0; }
-  .sidebar p, .sidebar ul, .sidebar li { font-size: 0.9rem; line-height: 1.5; }
-  .sidebar li { margin-bottom: 9px; }
+            /* Colonne bleue */
+            .sidebar { padding: 12mm 7mm; }
+            .sidebar h2 { margin-top: 28px; margin-bottom: 14px; }
+            .sidebar p, .sidebar ul, .sidebar li { font-size: 0.9rem; }
+            .sidebar li { margin-bottom: 9px; }
 
-  /* Colonne blanche : marge basse de 12 mm */
-  .main-content {
-    padding: 12mm 11mm 12mm 11mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  header { margin-bottom: 0; }
-  section { margin-bottom: 0; }
-  h1 { font-size: 2rem; }
-  h2.job-title { font-size: 1.05rem; }
-  h3 { font-size: 0.85rem; margin-bottom: 14px; }
-  .item { margin-bottom: 14px; }
-  .item-header { gap: 10px; }
-  .item-title { font-size: 0.95rem; }
-  .item-date { font-size: 0.85rem; white-space: nowrap; } /* la date ne passe plus à la ligne */
-  .item-company { font-size: 0.88rem; }
-  .main-content li { font-size: 0.9rem; line-height: 1.4; margin-bottom: 5px; }
-}
+            /* Colonne blanche : marge basse de 12 mm */
+            .main-content {
+                padding: 12mm 11mm;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            header { margin-bottom: 0; }
+            section { margin-bottom: 0; }
+            h1 { font-size: 2rem; }
+            h3 { margin-bottom: 14px; }
+            .item { margin-bottom: 14px; }
+            .item-header { gap: 10px; }
+            .item-date { white-space: nowrap; } /* la date ne passe plus à la ligne */
+            .item-company { font-size: 0.88rem; }
+        }
 
         /* Responsive mobile écran */
-       @media screen and (max-width: 768px) {
-                        html, body {                width: 210mm;                height: 297mm;                overflow: hidden; /* évite une 2e page vide */            }            .cv-container {                display: grid;                grid-template-columns: 70mm 1fr !important;                width: 210mm !important;                max-width: 210mm !important;                height: 297mm; /* remplit exactement la feuille A4 */                box-shadow: none;                border-radius: 0;            }            .sidebar a {                overflow-wrap: anywhere; /* l'email peut passer à la ligne au lieu de déborder */            }
+        @media screen and (max-width: 768px) {
+            html, body {
+                width: 210mm;
+            }
+            .cv-container {
+                display: grid;
+                grid-template-columns: 70mm 1fr;
+                width: 210mm;
+                max-width: 210mm;
+                height: 297mm; /* remplit exactement la feuille A4 */
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .sidebar a {
+                overflow-wrap: anywhere; /* l'email peut passer à la ligne au lieu de déborder */
+            }
         }
     </style>
 </head>
 <body>
 
-    <button class="download-btn" onclick="window.print()">Télécharger / Enregistrer en PDF</button>
+    <button type="button" class="download-btn" onclick="window.print()">Télécharger / Enregistrer en PDF</button>
 
     <div class="cv-container">
         <!-- COLONNE BLEUE -->
-        <div class="sidebar">
+        <aside class="sidebar">
             <h2>Coordonnées</h2>
             <p>
                 Beauvois-en-Cambrésis, France<br><br>
@@ -232,7 +253,7 @@
                 <strong>Téléphone :</strong><br>
                 +33 6 01 29 12 70<br><br>
                 <strong>LinkedIn :</strong><br>
-                <a href="https://www.linkedin.com/in/nathaniel-coulon-11960b203/" target="_blank">nathaniel-coulon</a>
+                <a href="https://www.linkedin.com/in/nathaniel-coulon-11960b203/" target="_blank" rel="noopener noreferrer">nathaniel-coulon</a>
             </p>
 
             <h2>Soft Skills</h2>
@@ -252,10 +273,10 @@
 
             <h2>Langues</h2>
             <p><strong>Anglais :</strong> A2</p>
-        </div>
+        </aside>
 
         <!-- COLONNE BLANCHE -->
-        <div class="main-content">
+        <main class="main-content">
             <header>
                 <h1>NATHANIEL COULON</h1>
                 <h2 class="job-title">Administrateur Cloud & DevOps</h2>
@@ -264,9 +285,9 @@
             <section>
                 <h3>Compétences</h3>
                 <ul>
-                    <li><strong>Cloud & DevOps :</strong> Administration Cloud (AWS / Azure), conteneurisation (Docker, Kubernetes), Infrastructure as Code (Terraform, Ansible), automatisation CI/CD (GitLab CI / GitHub Actions) et scripting (Python, Bash).</li>
-                    <li><strong>Systèmes & Réseaux :</strong> Administration systèmes Linux (Ubuntu, Debian) et Windows Server, gestion réseaux (TCP/IP, DNS, DHCP, routage). Sécurité : durcissement des systèmes, gestion des droits et des accès, pare-feu, SSH sécurisé, analyse des logs.</li>
-                    <li><strong>Support & Maintenance :</strong> Diagnostic et dépannage matériel, maintenance de parcs informatiques, expertise sur automates bancaires.</li>
+                    <li><strong>Cloud & DevOps :</strong> administration Cloud (AWS / Azure), conteneurisation (Docker, Kubernetes), Infrastructure as Code (Terraform, Ansible), automatisation CI/CD (GitLab CI / GitHub Actions) et scripting (Python, Bash).</li>
+                    <li><strong>Systèmes & Réseaux :</strong> administration systèmes Linux (Ubuntu, Debian) et Windows Server, gestion réseaux (TCP/IP, DNS, DHCP, routage). Sécurité : durcissement des systèmes, gestion des droits et des accès, pare-feu, SSH sécurisé, analyse des logs.</li>
+                    <li><strong>Support & Maintenance :</strong> diagnostic et dépannage matériel, maintenance de parcs informatiques, expertise sur automates bancaires.</li>
                 </ul>
             </section>
 
@@ -279,9 +300,9 @@
                     </div>
                     <ul>
                         <li>Migration et déploiement : exécution de projets de migration de parcs informatiques et d'automates bancaires.</li>
-                        <li>Support technique : Résolution d'incidents complexes de niveau 1 et 2, diagnostic matériel et logiciel sur site et à distance.</li>
-                        <li>Gestion de projet : Coordination des interventions techniques dans le respect des contraintes de sécurité et des SLA clients.</li>
-                        <li>Documentation : Rédaction de procédures techniques et de rapports d'intervention pour le suivi des parcs informatiques.</li>
+                        <li>Support technique : résolution d'incidents complexes de niveau 1 et 2, diagnostic matériel et logiciel sur site et à distance.</li>
+                        <li>Gestion de projet : coordination des interventions techniques dans le respect des contraintes de sécurité et des SLA clients.</li>
+                        <li>Documentation : rédaction de procédures techniques et de rapports d'intervention pour le suivi des parcs informatiques.</li>
                     </ul>
                 </div>
             </section>
@@ -291,10 +312,10 @@
                 <div class="item">
                     <div class="item-header">
                         <span class="item-title">Formation Administrateur Cloud & DevOps, M2i, Lille</span>
-                        <span class="item-date">Juil. 2026 - Actuel</span>
+                        <span class="item-date">Juil. 2026 - En cours</span>
                     </div>
                     <ul>
-                        <li>Formation intensive Devops Axée sur la conception et le maintien des infrastructures fiables, évolutives et rapides à déployer pour les entreprises</li>
+                        <li>Formation intensive DevOps axée sur la conception et le maintien d'infrastructures fiables, évolutives et rapides à déployer pour les entreprises.</li>
                     </ul>
                 </div>
                 <div class="item">
@@ -308,7 +329,7 @@
                     </ul>
                 </div>
             </section>
-        </div>
+        </main>
     </div>
 
 </body>
